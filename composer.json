@@ -1,10 +1,10 @@
 {
-    "name": "efremovp/yii2-youtube-helper",
+    "name": "efremovp/youtube-helper",
     "description": "Скачиваем видео с канала YouTube с помощью API. Для дальнейшего сохранения ссылок на видео в своей БД. И вывода их на сайт.",
-    "type": "yii2-extension",
-    "keywords": ["yii2","extension","youtube","video"],
+    "type": "library",
+    "keywords": ["yii2","extension","youtube","video","laravel", "library"],
     "license": "MIT",
-    "homepage": "https://github.com/efremovP/yii2-youtube-helper",
+    "homepage": "https://github.com/efremovP/youtube-helper",
     "authors": [
         {
             "name": "Peter Efremov",
@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "yiisoft/yii2": "~2.0.0"
+        "php": ">=5.4.0"
     },
     "require-dev": {
     },
