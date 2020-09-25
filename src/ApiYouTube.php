@@ -94,8 +94,7 @@ class ApiYouTube
             $this->video_list[$video_item['snippet']['resourceId']["videoId"]] = [
                 'key' => $video_item['snippet']['resourceId']["videoId"],
                 'title' => isset($video_item['snippet']['title']) ? $video_item['snippet']['title'] : '',
-                'img' => isset($video_item['snippet']['thumbnails']['standard']['url']) ? $video_item['snippet']['thumbnails']['standard']['url'] : '',
-                'date' => $this->getPublishDate($video_item['snippet']['resourceId']["videoId"])
+                'img' => isset($video_item['snippet']['thumbnails']['standard']['url']) ? $video_item['snippet']['thumbnails']['standard']['url'] : ''
             ];
         }
 
