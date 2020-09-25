@@ -83,18 +83,11 @@ class ApiYouTube
         $video_list = $get_data["items"];
 
         foreach ($video_list as $i => $video_item) {
-            if (isset($video_item['snippet']['publishedAt'])) {
-                $date_time = new \DateTime($video_item['snippet']['publishedAt']);
-                $date = $date_time->format('Y-m-d H:i:s');
-            } else {
-                $date = '';
-            }
-
             $this->video_list[$video_item['snippet']['resourceId']["videoId"]] = [
                 'key' => $video_item['snippet']['resourceId']["videoId"],
                 'title' => isset($video_item['snippet']['title']) ? $video_item['snippet']['title'] : '',
                 'img' => isset($video_item['snippet']['thumbnails']['standard']['url']) ? $video_item['snippet']['thumbnails']['standard']['url'] : '',
-                'date' => $date
+                'date' => $this->getPublishDate($video_item['snippet']['resourceId']["videoId"])
             ];
         }
 
