@@ -51,8 +51,16 @@ class ApiYouTube
     public function getImage($id_video)
     {
         $video_item = $this->getItem($id_video);
+        if (isset($video_item['thumbnails']['standard']['url'])) {
+            return $video_item['thumbnails']['standard']['url'];
+        }
 
-        return $video_item['thumbnails']['standard']['url'];
+        if (isset($video_item['thumbnails']['high']['url'])) {
+            return $video_item['thumbnails']['high']['url'];
+        }
+        if (isset($video_item['thumbnails']['medium']['url'])) {
+            return $video_item['thumbnails']['medium']['url'];
+        }
     }
 
     public function getPublishDate($id_video)
