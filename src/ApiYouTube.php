@@ -17,7 +17,7 @@ class ApiYouTube
 
     public function __construct($youtube_api_key)
     {
-    	$this->api_key = $youtube_api_key;
+        $this->api_key = $youtube_api_key;
     }
 
     /**
@@ -36,17 +36,37 @@ class ApiYouTube
         return $this->video_list;
     }
 
-    public function getImage($id_video)
+    public function getItem($id_video)
     {
         $get_data = file_get_contents('https://www.googleapis.com/youtube/v3/videos?id=' . $id_video . '&part=snippet&key=' . $this->api_key);
         $get_data = json_decode($get_data, true);
 
-        if (! isset($get_data["items"][0]['snippet'])) {
+        if (!isset($get_data["items"][0]['snippet'])) {
             return '';
         }
-        $video_item = $get_data["items"][0]['snippet'];
+
+        return $get_data["items"][0]['snippet'];
+    }
+
+    public function getImage($id_video)
+    {
+        $video_item = $this->getItem($id_video);
 
         return $video_item['thumbnails']['standard']['url'];
+    }
+
+    public function getPublishDate($id_video)
+    {
+        $video_item = $this->getItem($id_video);
+
+        if (!isset($video_item['publishedAt'])) {
+            return '';
+        }
+
+        $date_time = new \DateTime($video_item['publishedAt']);
+        $date = $date_time->format('Y-m-d H:i:s');
+
+        return $date;
     }
 
     private function getPartVideoList($id_channel, $next_page_token = '')

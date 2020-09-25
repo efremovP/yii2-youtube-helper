@@ -37,8 +37,16 @@ $id_youtube_playlist = 'PLdmSK1Qzu984Jnm_YhDcD_Hs5WEB39HoR';
 // скачать список видео плейлиста
 $video_list = $youtube->getList($id_youtube_playlist);
 
-// получаем иконку на видео
+
 $key_video = '7JHQ83gho6E';
+
+// получаем массив всех данных на видео
 $image_url = $youtube->getImage($key_video);
+
+// получаем иконку на видео
+$image_url = $youtube->getImage($key_video);
+
+//дату публикации на видео в формате YYYY-MM-DD HH:MM:SS
+$image_url = $youtube->getPublishDate($key_video);
 
 ```
