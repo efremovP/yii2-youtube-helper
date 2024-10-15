@@ -1,5 +1,5 @@
 {
-    "name": "efremovp/youtube-helper",
+    "name": "efremovp/yii2-youtube-helper",
     "description": "Скачиваем видео с канала YouTube с помощью API. Для дальнейшего сохранения ссылок на видео в своей БД. И вывода их на сайт.",
     "type": "library",
     "keywords": ["yii2","extension","youtube","video","laravel", "library"],
